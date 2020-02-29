@@ -1,4 +1,4 @@
-TERA-Guide
+TERA-Guide-Area
 ======
 
 # 功能简介: 为TERA的常用副本提供[技能]辅助 地面提示
