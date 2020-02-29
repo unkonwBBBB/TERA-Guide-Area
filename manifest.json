@@ -1,0 +1,16 @@
+{
+    "files": {
+        "index.js": "cfd2f7faac36919220a5097ffd5d22434ad1b77503149b7256428e6f061abe3d",
+        "module.json": "f0689914e5954cd3a59ce8768cfbb282f54b462aeeb5c52624c29caad85ddef3"
+    },
+    "defs": {
+        "S_ACTION_STAGE": 9,
+        "S_BOSS_GAGE_INFO": 3,
+        "S_DESPAWN_COLLECTION": 2,
+        "S_DESPAWN_DROPITEM": 4,
+        "S_SPAWN_COLLECTION": 4,
+        "S_SPAWN_DROPITEM": 8,
+        "S_SPAWN_NPC": 11,
+        "S_SPAWN_PROJECTILE": 5
+    }
+}
