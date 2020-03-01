@@ -605,28 +605,29 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 5000, 3, 180,  80,   0,  360,   8, 520);
 			}
 			if (skillid==155) { // 八方陨石_小
-				SpawnThing(bossLoc, bossAngle, 5000, 3,   0, 500,   0,  360,  22, 110);
-				SpawnThing(bossLoc, bossAngle, 5000, 3,  45, 500,   0,  360,  22, 110);
-				SpawnThing(bossLoc, bossAngle, 5000, 3,  90, 500,   0,  360,  22, 110);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 135, 500,   0,  360,  22, 110);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 180, 500,   0,  360,  22, 110);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 235, 500,   0,  360,  22, 110);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 270, 500,   0,  360,  22, 110);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 315, 500,   0,  360,  22, 110);
+				SpawnThing(bossLoc, bossAngle, 3000, 3, 135, 500,   0,  360,  20, 110);
+				SpawnThing(bossLoc, bossAngle, 3250, 3, 315, 500,   0,  360,  20, 110);
+				SpawnThing(bossLoc, bossAngle, 3500, 3,  45, 500,   0,  360,  20, 110);
+				SpawnThing(bossLoc, bossAngle, 3750, 3, 235, 500,   0,  360,  20, 110);
+				SpawnThing(bossLoc, bossAngle, 4000, 3,  90, 500,   0,  360,  20, 110);
+				SpawnThing(bossLoc, bossAngle, 4250, 3, 270, 500,   0,  360,  20, 110);
+				SpawnThing(bossLoc, bossAngle, 4500, 3,   0, 500,   0,  360,  20, 110);
+				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  20, 110);
 				
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 350);
 			}
 			if (skillid==105) { // 八方陨石_大
-				SpawnThing(bossLoc, bossAngle, 5000, 3,   0, 500,   0,  360,  10, 270);
-				SpawnThing(bossLoc, bossAngle, 5000, 3,  45, 500,   0,  360,  10, 270);
-				SpawnThing(bossLoc, bossAngle, 5000, 3,  90, 500,   0,  360,  10, 270);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 135, 500,   0,  360,  10, 270);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 180, 500,   0,  360,  10, 270);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 235, 500,   0,  360,  10, 270);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 270, 500,   0,  360,  10, 270);
-				SpawnThing(bossLoc, bossAngle, 5000, 3, 315, 500,   0,  360,  10, 270);
+				SpawnThing(bossLoc, bossAngle, 3000, 3, 135, 500,   0,  360,  10, 270);
+				SpawnThing(bossLoc, bossAngle, 3250, 3, 315, 500,   0,  360,  10, 270);
+				SpawnThing(bossLoc, bossAngle, 3500, 3,  45, 500,   0,  360,  10, 270);
+				SpawnThing(bossLoc, bossAngle, 3750, 3, 232, 500,   0,  360,  10, 270);
+				SpawnThing(bossLoc, bossAngle, 4000, 3,  90, 500,   0,  360,  10, 270);
+				SpawnThing(bossLoc, bossAngle, 4250, 3, 270, 500,   0,  360,  10, 270);
+				SpawnThing(bossLoc, bossAngle, 4500, 3,   0, 500,   0,  360,  10, 270);
+				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  10, 270);
 			}
 		}
+		// 545050
 	}
 	
 	/* distance         1.参照坐标
@@ -649,19 +650,16 @@ module.exports = function Tera_Guide_Area(mod) {
 			distance = bossLoc;
 		}
 		
-		if (type==1) {
-			// 构建标记(SpawnPoint)
+		if (type==1) { // 构建标记(SpawnPoint)
 			SpawnPoint(distance, angle, duration, type, offsetAngle, offsetDistance);
 		}
-		if (type==2) {
-			// 构建直线(SpawnString)
+		if (type==2) { // 构建直线(SpawnString)
 			for (var interval=50; interval<=maxRadius; interval+=50) {
 				if (interval<minRadius) continue;
 				SpawnPoint(distance, angle, duration, type, rotateAngle, interval);
 			}
 		}
-		if (type==3) {
-			// 构建圆弧(SpawnCircle)
+		if (type==3) { // 构建圆弧(SpawnCircle)
 			for (var interval=0; interval<360; interval+=rotateAngle) {
 				if (minRadius<maxRadius) {
 					if (interval<minRadius || interval>maxRadius) continue;
