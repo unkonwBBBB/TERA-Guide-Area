@@ -604,7 +604,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			if (skillid==154) { // 寒气_小
 				SpawnThing(bossLoc, bossAngle, 5000, 3, 180,  80,   0,  360,   8, 520);
 			}
-			if (skillid==155) { // 八方陨石_小
+			/* if (skillid==155) { // 八方陨石_小
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 135, 500,   0,  360,  20, 110);
 				SpawnThing(bossLoc, bossAngle, 3250, 3, 315, 500,   0,  360,  20, 110);
 				SpawnThing(bossLoc, bossAngle, 3500, 3,  45, 500,   0,  360,  20, 110);
@@ -615,8 +615,8 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  20, 110);
 				
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 350);
-			}
-			if (skillid==105) { // 八方陨石_大
+			} */
+			/* if (skillid==105) { // 八方陨石_大
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 135, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 3250, 3, 315, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 3500, 3,  45, 500,   0,  360,  10, 270);
@@ -625,7 +625,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 4250, 3, 270, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 4500, 3,   0, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  10, 270);
-			}
+			} */
 		}
 		// 545050
 	}
