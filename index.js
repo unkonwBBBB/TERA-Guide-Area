@@ -580,7 +580,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				}, 3000);
 			}
 		}
-		// CK 304260
+		// 凯尔 304260
 		if ([3026, 3126].includes(whichmode) && [1000, 1001, 1002].includes(event.templateId)) {
 			if (event.stage!=0) return;
 			if ([103, 153].includes(skillid)) { // 尾巴(击飞!!)
@@ -615,8 +615,8 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  20, 110);
 				
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 350);
-			} */
-			/* if (skillid==105) { // 八方陨石_大
+			}
+			if (skillid==105) { // 八方陨石_大
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 135, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 3250, 3, 315, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 3500, 3,  45, 500,   0,  360,  10, 270);
@@ -627,7 +627,20 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  10, 270);
 			} */
 		}
-		// 545050
+		// 狂气 545050
+		if (whichmode==3027 && event.templateId==1000) {
+			if (event.stage!=0) return;
+			if (skillid==116) { // 斩击
+				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 180,   0,  360,   8, 460);
+			}
+			if (skillid==140) { // 斩击
+				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 360,   0,  360,   8, 460);
+			}
+			if (skillid==350) { // 甜甜圈
+				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  12, 240);
+				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,   8, 480);
+			}
+		}
 	}
 	
 	/* distance         1.参照坐标
