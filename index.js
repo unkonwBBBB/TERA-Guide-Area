@@ -547,10 +547,8 @@ module.exports = function Tera_Guide_Area(mod) {
 		if (whichmode==3020 && event.templateId==2200) {
 			// 直线骷髅
 			if (skillid==129) {
-				bossLoc = event.dest;
-				bossAngle = event.w;
-				SpawnThing(bossLoc, bossAngle, 2000, 2,  90,  75,   0,  800,   0);
-				SpawnThing(bossLoc, bossAngle, 2000, 2, 270,  75,   0,  800,   0);
+				SpawnThing(bossLoc, bossAngle, 2000, 2,  90,  75,   0,  800, 180);
+				SpawnThing(bossLoc, bossAngle, 2000, 2, 270,  75,   0,  800, 180);
 			}
 			// 蓄力(晕坦)
 			if (skillid==108) {
