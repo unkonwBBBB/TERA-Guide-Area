@@ -507,9 +507,8 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 			// 后扫半圈
 			if (event.skill.id==1115||event.skill.id==2115) {
-				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  340, 260);
-				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  340,  90);
-				
+				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0, 150,  340, 260);
+				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0, 150,  340,  90);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  20, 150);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  12, 245);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  10, 340);
@@ -540,7 +539,6 @@ module.exports = function Tera_Guide_Area(mod) {
 			if (skillid==202) {
 				SpawnThing(bossLoc, bossAngle, 3000, 2,  90,  90,   0,  500,   0);
 				SpawnThing(bossLoc, bossAngle, 3000, 2,  90,  90,   0,  500, 180);
-				
 				SpawnThing(bossLoc, bossAngle, 3000, 2, 270,  90,   0,  500,   0);
 				SpawnThing(bossLoc, bossAngle, 3000, 2, 270,  90,   0,  500, 180);
 			}
@@ -549,6 +547,8 @@ module.exports = function Tera_Guide_Area(mod) {
 		if (whichmode==3020 && event.templateId==2200) {
 			// 直线骷髅
 			if (skillid==129) {
+				bossLoc = event.dest;
+				bossAngle = event.w;
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90,  75,   0,  800,   0);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270,  75,   0,  800,   0);
 			}
@@ -565,7 +565,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   4, 900);
 			}
 			// 三连击 开始技能
-			if (skillid==121) {			// 124 前砸 -> 125 转圈
+			/* if (skillid==121) {			// 124 前砸 -> 125 转圈
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 170,   0,  360,  10, 290);
 				mod.setTimeout(() => {
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0,   0,  360,  10, 280);
@@ -578,7 +578,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				mod.setTimeout(() => {
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 170,   0,  360,  10, 290);
 				}, 3000);
-			}
+			} */
 		}
 		// 凯尔 304260
 		if ([3026, 3126].includes(whichmode) && [1000, 1001, 1002].includes(event.templateId)) {
@@ -634,11 +634,11 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 180,   0,  360,   8, 460);
 			}
 			if (skillid==140) { // 斩击
-				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 360,   0,  360,   8, 460);
+				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 180,   0,  360,   8, 460);
 			}
 			if (skillid==350) { // 甜甜圈
-				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  12, 240);
-				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,   8, 480);
+				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  12, 240);
+				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   8, 480);
 			}
 		}
 	}
