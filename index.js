@@ -137,9 +137,9 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  10, 330);
 			}
 		}
-		// FI_2王
+		// FI_2王 303150
 		
-		// FI_3王
+		// FI_3王 303140
 		
 		// RM_1王 300860
 		if ([770, 970].includes(whichmode) && event.templateId==1000) {
@@ -318,11 +318,11 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 300);
 			}
 		}
-		// RR_1王
+		// RR_1王 303450
 		
-		// RR_2王
+		// RR_2王 303460
 		
-		// RR_3王
+		// RR_3王 303490
 		
 		// AA_1王 303470
 		
@@ -425,7 +425,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnPoint(bossLoc, bossAngle, 2000, 1,  90, 250);
 			}
 		}
-		// GV_1王
+		// GV_1王 303890
 		if ([3101, 3201].includes(whichmode) && event.templateId==1000) {
 			if (event.stage!=0) return;
 			// 直线后喷
@@ -465,7 +465,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 4000, 3, 200, 150,   0,  360,  10, 320);
 			}
 		}
-		// GV_2王
+		// GV_2王 303840
 		if ([3101, 3201].includes(whichmode) && event.templateId==2000) {
 			if (event.stage!=0) return;
 			// 前插 后喷
@@ -483,7 +483,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  10, 300);
 			}
 		}
-		// AQ_1王
+		// AQ_1王 303480
 		if (whichmode==3023 && event.templateId==1000) {
 			if (event.stage!=0) return;
 			// 左手拉
@@ -527,7 +527,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 160,   0,  360,  12, 220);
 			}
 		}
-		// AQ_2王
+		// AQ_2王 303490
 		if (whichmode==3023 && event.templateId==2000) {
 			if (event.stage!=0) return;
 			// 插地板
@@ -543,7 +543,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 3000, 2, 270,  90,   0,  500, 180);
 			}
 		}
-		// SI_3王
+		// SI_3王 545040
 		if (whichmode==3020 && event.templateId==2200) {
 			// 直线骷髅
 			if (skillid==129) {
@@ -628,20 +628,17 @@ module.exports = function Tera_Guide_Area(mod) {
 		// 狂气 545050
 		if (whichmode==3027 && event.templateId==1000) {
 			if (event.stage!=0) return;
-			if (skillid==116) { // 斩击
+			if ([116, 140].includes(skillid)) { // 斩击
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 180,   0,  360,   8, 460);
 			}
-			if (skillid==140) { // 斩击
-				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 180,   0,  360,   8, 460);
-			}
-			if (skillid==350) { // 甜甜圈
+			if (skillid==302) { // 甜甜圈
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  12, 240);
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   8, 480);
 			}
 		}
 	}
 	
-	/* distance         1.参照坐标
+	/* location         1.参照坐标
 	   angle            2.参照角度
 	   duration         3.持续时间
 	   type             4.类型
@@ -652,22 +649,22 @@ module.exports = function Tera_Guide_Area(mod) {
 	   rotateAngle      9.旋转角度(圆形间隔)
 	   rotateRadius     0.直线忽略(圆形半径) */
 	
-	function SpawnThing(distance, angle, duration, type, offsetAngle, offsetDistance, minRadius, maxRadius, rotateAngle, rotateRadius) {
+	function SpawnThing(location, angle, duration, type, offsetAngle, offsetDistance, minRadius, maxRadius, rotateAngle, rotateRadius) {
 		// 偏移坐标(OffsetLocation)
 		if (type!=1 && offsetDistance!=0) {
-			SpawnPoint(distance, angle, 100, 0, offsetAngle, offsetDistance);
-			distance = offsetLoc;
+			SpawnPoint(location, angle, 100, 0, offsetAngle, offsetDistance);
+			location = offsetLoc;
 		} else {
-			distance = bossLoc;
+			location = bossLoc;
 		}
 		
 		if (type==1) { // 构建标记(SpawnPoint)
-			SpawnPoint(distance, angle, duration, type, offsetAngle, offsetDistance);
+			SpawnPoint(location, angle, duration, type, offsetAngle, offsetDistance);
 		}
 		if (type==2) { // 构建直线(SpawnString)
 			for (var interval=50; interval<=maxRadius; interval+=50) {
 				if (interval<minRadius) continue;
-				SpawnPoint(distance, angle, duration, type, rotateAngle, interval);
+				SpawnPoint(location, angle, duration, type, rotateAngle, interval);
 			}
 		}
 		if (type==3) { // 构建圆弧(SpawnCircle)
@@ -677,20 +674,20 @@ module.exports = function Tera_Guide_Area(mod) {
 				} else {
 					if (interval<minRadius && interval>maxRadius) continue;
 				}
-				SpawnPoint(distance, angle, duration, type, interval, rotateRadius);
+				SpawnPoint(location, angle, duration, type, interval, rotateRadius);
 			}
 		}
 	}
 	
-	function SpawnPoint(distance, angle, duration, type, offsetAngle, offsetDistance) {
+	function SpawnPoint(location, angle, duration, type, offsetAngle, offsetDistance) {
 		var r = null, rads = null, finalrad = null, spawnx = null, spawny = null;
 		r = angle - Math.PI;
 		rads = (offsetAngle * Math.PI/180);
 		finalrad = r - rads;
-		spawnx = distance.x + offsetDistance * Math.cos(finalrad);
-		spawny = distance.y + offsetDistance * Math.sin(finalrad);
+		spawnx = location.x + offsetDistance * Math.cos(finalrad);
+		spawny = location.y + offsetDistance * Math.sin(finalrad);
 		
-		offsetLoc = new Vec3(spawnx, spawny, distance.z);
+		offsetLoc = new Vec3(spawnx, spawny, location.z);
 		
 		if (type == 1) {
 			SpawnD(uid1, offsetLoc);
