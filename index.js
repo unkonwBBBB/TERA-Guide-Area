@@ -1,20 +1,20 @@
 const Vec3 = require('tera-vec3');
 
 module.exports = function Tera_Guide_Area(mod) {
-	let Enabled            =  true; // 总开关
+	let Enabled    =  true; // 总开关
 	// 定义变量
-	let hooks              = [],
-		whichzone          = null,  // 登陆地区(zone)
-		whichmode          = null,  // 副本地图(huntingZoneId)
-		whichboss          = null,  // 区域位置(templateId)
-		bossGameId         = null,  // BOSS gameId
-		boss_HP            = 0,     // BOSS 血量%
-		bossLoc            = {},    // BOSS 坐标
-		bossAngle          = 0,     // BOSS 角度
-		skillid            = 0,     // BOSS 攻击技能编号
-		uid1      = 999999999n,     // 龙头UID
-		uid2      = 899999999n,     // 花朵UID
-		offsetLoc          = {};    // 偏移坐标
+	let hooks      = [],
+		whichzone  = null,  // 登陆地区(zone)
+		whichmode  = null,  // 副本地图(huntingZoneId)
+		whichboss  = null,  // 区域位置(templateId)
+		bossGameId = null,  // BOSS gameId
+		boss_HP    = 0,     // BOSS 血量%
+		bossLoc    = {},    // BOSS 坐标
+		bossAngle  = 0,     // BOSS 角度
+		skillid    = 0,     // BOSS 攻击技能编号
+		uid1       = 999999999n, // 龙头UID
+		uid2       = 899999999n, // 花朵UID
+		offsetLoc  = {};    // 偏移坐标
 	// 控制命令
 	mod.command.add(["地面提示", "area"], () => {
 		Enabled = !Enabled;
@@ -510,7 +510,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0, 150,  340, 260);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0, 150,  340,  90);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  20, 150);
-				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  12, 245);
+				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  10, 245);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  10, 340);
 			}
 			
@@ -564,21 +564,15 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 			// 三连击 开始技能
 			/* if (skillid==121) {			// 124 前砸 -> 125 转圈
+				SpawnPoint(bossLoc, bossAngle, 3000, 3, 180, 170);
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 170,   0,  360,  10, 290);
-				mod.setTimeout(() => {
-				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0,   0,  360,  10, 280);
-				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0,   0,  360,   4, 560);
-				}, 3000);
 			}
 			if (skillid==122) {			// 125 转圈  -> 124 前砸
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0,   0,  360,  10, 280);
 				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,   4, 560);
-				mod.setTimeout(() => {
-				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 170,   0,  360,  10, 290);
-				}, 3000);
 			} */
 		}
-		// 凯尔 304260
+		// CK_凯尔 304260
 		if ([3026, 3126].includes(whichmode) && [1000, 1001, 1002].includes(event.templateId)) {
 			if (event.stage!=0) return;
 			if ([103, 153].includes(skillid)) { // 尾巴(击飞!!)
@@ -625,14 +619,14 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  10, 270);
 			} */
 		}
-		// 狂气 545050
+		// FA_狂气 545050
 		if (whichmode==3027 && event.templateId==1000) {
 			if (event.stage!=0) return;
 			if ([116, 140].includes(skillid)) { // 斩击
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 180,   0,  360,   8, 460);
 			}
 			if (skillid==302) { // 甜甜圈
-				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  12, 240);
+				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 240);
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   8, 480);
 			}
 		}
