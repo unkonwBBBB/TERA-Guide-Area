@@ -5,7 +5,7 @@
         "guiName": "地面提示(Tera-Guide-Area)"
     },
     "author": "ZC",
-    "description": "为TERA的常用副本提供[技能]辅助地面提示",
+    "description": "为TERA的常用副本提供[技能]辅助-地面提示",
     "servers": ["https://raw.githubusercontent.com/tera-mod/Tera-Guide-Area/master/"],
     "supportUrl": "https://github.com/tera-mod/Tera-Guide-Area/issues",
     "version": "91.04"

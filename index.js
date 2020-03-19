@@ -106,34 +106,35 @@ module.exports = function Tera_Guide_Area(mod) {
 		// 模块关闭 或 不在副本中
 		if (!Enabled || !whichmode) return;
 		
+		// BS_火神_王座
+		if (whichmode== 444 && event.templateId==2500 && event.stage==0 && event.skill.id==1305) {
+			SpawnThing(event.loc, event.w, 4000, 2, 0, 0, 0, 3000, 180);
+		}
 		// 金鳞船 - 海浪老兵(弓箭) 陷阱炸弹
-		if (whichmode==3020 && event.templateId==1700 && event.skill.id==1105) {
+		if (whichmode==3020 && event.templateId==1700 && event.stage==0 && event.skill.id==1105) {
 			SpawnPoint(event.loc, event.w, 5000, 1, 0, 0);
 		}
 		
 		if (whichboss!=event.templateId) return;
-		
+		skillid   = event.skill.id % 1000; // 愤怒简化 取1000余数运算
 		bossLoc   = event.loc;             // BOSS的 x y z 坐标
 		bossAngle = event.w;               // BOSS的角度
-		skillid   = event.skill.id % 1000; // 愤怒简化 取1000余数运算
 		
 		// DW_1王
 		
 		// DW_2王 303360
-		if (whichmode==466 && event.templateId==46602) {
-			if (event.stage!=0) return;
+		if (whichmode== 466 && event.templateId==46602 && event.stage==0) {
 			if ([311, 312, 313, 314].includes(skillid)) { // 举球 内外圈
 				SpawnThing(bossLoc, bossAngle, 4000, 3,   0,   0,   0,  360,  10, 330);
 			}
 		}
 		// FI_1王 303120
-		if ([459, 759].includes(whichmode) && [1001, 1004].includes(event.templateId)) {
-			if (event.stage!=0) return;
+		if ([459, 759].includes(whichmode) && [1001, 1004].includes(event.templateId) && event.stage==0) {
 			if (event.skill.id==3107) { // 重击
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90, 100,   0, 1000, 170);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270, 100,   0, 1000, 190);
 			}
-			if (event.skill.id==1106||event.skill.id==2106) { // 旋转攻击
+			if ([1106, 2106].includes(event.skill.id)) { // 旋转攻击
 				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  10, 330);
 			}
 		}
@@ -141,17 +142,21 @@ module.exports = function Tera_Guide_Area(mod) {
 		
 		// FI_3王 303140
 		
+		// DF_1王
+		
+		// DF_2王
+		
+		// DF_3王
+		
 		// RM_1王 300860
-		if ([770, 970].includes(whichmode) && event.templateId==1000) {
-			if (event.stage!=0) return;
+		if ([770, 970].includes(whichmode) && event.templateId==1000 && event.stage==0) {
 			if (skillid==107) { // 前喷
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,   0,   0,  500, 130);
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,   0,   0,  500, 230);
 			}
 		}
 		// RM_2王 300870
-		if ([770, 970].includes(whichmode) && event.templateId==2000) {
-			if (event.stage!=0) return;
+		if ([770, 970].includes(whichmode) && event.templateId==2000 && event.stage==0) {
 			if (skillid==111) { // 直线攻击
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90,  80,   0,  500, 180);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270,  80,   0,  500, 180);
@@ -161,8 +166,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// RM_3王 303260
-		if ([770, 970].includes(whichmode) && event.templateId==3000) {
-			if (event.stage!=0) return;
+		if ([770, 970].includes(whichmode) && event.templateId==3000 && event.stage==0) {
 			if (skillid==106) { // 前推坦
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,  50,   0,  530, 145);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,  50,   0,  530, 250);
@@ -173,7 +177,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  620, 202);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 202,  158,   4, 620);
 			}
-			if (skillid==113 && skillid==116) { // 鉴定 内外圈
+			if ([113, 116].includes(skillid)) { // 鉴定 内外圈
 				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  10, 290);
 			}
 			if (skillid==322) { // 命运圈
@@ -183,8 +187,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// VS_1王 303340
-		if ([781, 981].includes(whichmode) && event.templateId==1000) {
-			if (event.stage!=0) return;
+		if ([781, 981].includes(whichmode) && event.templateId==1000 && event.stage==0) {
 			if (skillid==401) { // 右刀
 				SpawnThing(bossLoc, bossAngle, 1500, 2,   0,   0,   0,  500, 180);
 				SpawnThing(bossLoc, bossAngle, 1500, 2,   0,   0,   0,  500,   0);
@@ -200,8 +203,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// VS_2王 303350
-		if ([781, 981].includes(whichmode) && event.templateId==2000) {
-			if (event.stage!=0) return;
+		if ([781, 981].includes(whichmode) && event.templateId==2000 && event.stage==0) {
 			if (skillid==131) { // 右刀
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  500, 175);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  500,   5);
@@ -214,8 +216,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// VS_3王 303330
-		if ([781, 981].includes(whichmode) && event.templateId==3000) {
-			if (event.stage!=0) return;
+		if ([781, 981].includes(whichmode) && event.templateId==3000 && event.stage==0) {
 			if (skillid==116 && whichmode==781) { // 下级 前盾砸 132
 				SpawnThing(bossLoc, bossAngle, 5000, 2, 180,  50,   0,  500, 115);
 				SpawnThing(bossLoc, bossAngle, 5000, 2, 180,  50,   0,  500, 245);
@@ -230,8 +231,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// RK_1王 303400
-		if ([735, 935].includes(whichmode) && event.templateId==1000) {
-			if (event.stage!=0) return;
+		if ([735, 935].includes(whichmode) && event.templateId==1000 && event.stage==0) {
 			if (skillid==315||skillid==319) { // 披萨_1 前右
 				mod.setTimeout(() => {
 				SpawnThing(bossLoc, bossAngle,14000, 2,   0,   0,   0,  800, 180);
@@ -288,8 +288,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// RK_2王 303420
-		if ([735, 935].includes(whichmode) && event.templateId==2000) {
-			if (event.stage!=0) return;
+		if ([735, 935].includes(whichmode) && event.templateId==2000 && event.stage==0) {
 			if (skillid==108) { // 后喷
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,   0,   0,  380,  60);
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,   0,   0,  380, 300);
@@ -306,15 +305,14 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// RK_3王 303410
-		if ([735, 935].includes(whichmode) && event.templateId==3000) {
-			if (event.stage!=0) return;
+		if ([735, 935].includes(whichmode) && event.templateId==3000 && event.stage==0) {
 			if (skillid==128) { // 火箭拳 后喷 131
 				mod.setTimeout(() => {
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,  40,   0, 1200,  60);
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,  40,   0, 1200, 300);
 				}, 2000);
 			}
-			if (skillid==323||skillid==324||skillid==305) { // 雷达 / 鉴定
+			if ([323, 324, 305].includes(skillid)) { // 雷达 / 鉴定
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 300);
 			}
 		}
@@ -329,8 +327,7 @@ module.exports = function Tera_Guide_Area(mod) {
 		// AA_2王 303480
 		
 		// AA_3王 303440
-		if ([720, 920, 3017].includes(whichmode) && event.templateId==3000) {
-			if (event.stage!=0) return;
+		if ([720, 920, 3017].includes(whichmode) && event.templateId==3000 && event.stage==0) {
 			if (skillid==109) { // 右刀
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  500, 180);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  500,   0);
@@ -343,8 +340,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// DRC_1王 304070
-		if ([783, 983, 3018].includes(whichmode) && event.templateId==1000) {
-			if (event.stage!=0) return;
+		if ([783, 983, 3018].includes(whichmode) && event.templateId==1000 && event.stage==0) {
 			if (skillid==108) { // 后跳(眩晕)
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,  70,   0,  360,   8, 470);
 			}
@@ -353,8 +349,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// DRC_2王 304080
-		if ([783, 983, 3018].includes(whichmode) && event.templateId==2000) {
-			if (event.stage!=0) return;
+		if ([783, 983, 3018].includes(whichmode) && event.templateId==2000 && event.stage==0) {
 			if (skillid==105) { // 点名(击飞)
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,   0,   0,  600, 180);
 			}
@@ -363,8 +358,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// DRC_3王 303540
-		if ([783, 983, 3018].includes(whichmode) && event.templateId==3000) {
-			if (event.stage!=0) return;
+		if ([783, 983, 3018].includes(whichmode) && event.templateId==3000 && event.stage==0) {
 			if (skillid==303) { // S攻击 右
 				SpawnThing(bossLoc, bossAngle, 5000, 2,   0,   0,   0,  400,  90);
 				SpawnThing(bossLoc, bossAngle, 5000, 2,   0,   0,   0,  400, 270);
@@ -379,16 +373,14 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// GLS_1王 304050
-		if ([782, 982, 3019].includes(whichmode) && event.templateId==1000) {
-			if (event.stage!=0) return;
+		if ([782, 982, 3019].includes(whichmode) && event.templateId==1000 && event.stage==0) {
 			if (skillid==107) { // 后喷
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,   0,   0,  500,  45);
 				SpawnThing(bossLoc, bossAngle, 3000, 2,   0,   0,   0,  500, 315);
 			}
 		}
 		// GLS_2王 304060
-		if ([782, 982, 3019].includes(whichmode) && event.templateId==2000) {
-			if (event.stage!=0) return;
+		if ([782, 982, 3019].includes(whichmode) && event.templateId==2000 && event.stage==0) {
 			if (skillid==116) { // 前砸后砸 横向对称轴
 				SpawnThing(bossLoc, bossAngle, 5000, 2,   0,   0,   0,  500,  90);
 				SpawnThing(bossLoc, bossAngle, 5000, 2,   0,   0,   0,  500, 270);
@@ -408,10 +400,10 @@ module.exports = function Tera_Guide_Area(mod) {
 		}
 		// GLS_3王 303550
 		if ([782, 982, 3019].includes(whichmode) && event.templateId==3000) {
-			if ([146, 154].includes(skillid)) {// 右扩散电圈标记
+			if ([146, 154].includes(skillid)) { // 右扩散电圈标记
 				SpawnPoint(bossLoc, bossAngle, 4000, 1, 325, 370);
 			}
-			if ([148, 155].includes(skillid)) {// 左扩散电圈标记
+			if ([148, 155].includes(skillid)) { // 左扩散电圈标记
 				SpawnPoint(bossLoc, bossAngle, 4000, 1,  25, 388);
 			}
 			if ([139, 150].includes(skillid)) { // 飞天半屏右攻击
@@ -425,95 +417,116 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnPoint(bossLoc, bossAngle, 2000, 1,  90, 250);
 			}
 		}
+		// BS_火神 303510 303520
+		if (whichmode== 444 && [1000, 2000].includes(event.templateId) && event.stage==0) {
+			if (skillid==119) { // 右半屏击飞
+				SpawnPoint(bossLoc, bossAngle, 5000, 1, 270, 250);
+			}
+			if (skillid==120) { // 左半屏击飞
+				SpawnPoint(bossLoc, bossAngle, 5000, 1,  90, 250);
+			}
+			if ([311, 312].includes(skillid)) { // 对称轴
+				SpawnThing(bossLoc, bossAngle, 6000, 2,   0,   0,   0,  500, 180);
+				SpawnThing(bossLoc, bossAngle, 6000, 2,   0,   0,   0,  500,   0);
+			}
+			if (skillid==132) { // 左拉 131 132 134
+				SpawnThing(bossLoc, bossAngle, 2000, 2, 195, 400,   0,  800, 348);
+			}
+			if (skillid==126) { // 右拉 125 126 127
+				SpawnThing(bossLoc, bossAngle, 2000, 2, 165, 400,   0,  800,  12);
+			}
+			if (skillid==101) { // 锤地(三连击)
+				SpawnThing(bossLoc, bossAngle, 4000, 2,   0,   0,   0,  500, 270);
+				SpawnThing(bossLoc, bossAngle, 4000, 2,   0,   0,   0,  500, 345);
+			}
+			if ([121,122,123, 140,141,142].includes(skillid)) { // 四连半月
+				SpawnThing(bossLoc, bossAngle, 6000, 2, 270,  50,   0,  400, 180);
+				SpawnThing(bossLoc, bossAngle, 6000, 2, 270,  50,   0,  400,   0);
+				SpawnThing(bossLoc, bossAngle, 6000, 2,  90,  50,   0,  400, 180);
+				SpawnThing(bossLoc, bossAngle, 6000, 2,  90,  50,   0,  400,   0);
+			}
+			if (skillid==114) { // 点名 -> 捶地
+				SpawnThing(bossLoc, bossAngle, 4000, 3, 184, 260,   0,  360,  10, 320);
+			}
+			if (skillid==116) { // 点名 -> 甜甜圈
+				SpawnThing(bossLoc, bossAngle, 4000, 3,   0,   0,   0,  360,  10, 290);
+				SpawnThing(bossLoc, bossAngle, 4000, 3,   0,   0,   0,  360,   4, 580);
+			}
+			if ([112, 135].includes(skillid)) { // 完美格挡
+				SpawnThing(bossLoc, bossAngle, 4000, 3, 184, 220,   0,  360,  15, 210);
+			}
+		}
 		// GV_1王 303890
-		if ([3101, 3201].includes(whichmode) && event.templateId==1000) {
-			if (event.stage!=0) return;
-			// 直线后喷
-			if (skillid==127||skillid==107) {
+		if ([3101, 3201].includes(whichmode) && event.templateId==1000 && event.stage==0) {
+			if ([127, 107].includes(skillid)) { // 直线后喷
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90, 140,   0,  800,   7);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270, 140,   0,  800, 353);
 			}
-			// 扇形后喷
-			if (skillid==131||skillid==111) {
+			if ([131, 111].includes(skillid)) { // 扇形后喷
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 180, 100,   0,  800,  68);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 180, 100,   0,  800, 292);
 			}
-			// 左右喷射
-			/* if (skillid==132||skillid==112) {
+			/* if ([132, 112].includes(skillid)) { // 左右喷射
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  800, 163);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  800, 192);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  800, 343);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  800,  22);
 			} */
-			// 前后喷射
-			if (skillid==139||skillid==119) {
+			if ([139, 119].includes(skillid)) { // 前后喷射
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  800,  70);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  800, 110);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  800, 250);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0,   0,  800, 290);
 			}
-			// 内外圈
-			if (skillid==313||skillid==314) {
+			if ([313, 314].includes(skillid)) { // 内外圈
 				SpawnThing(bossLoc, bossAngle, 4000, 3, 180,  88,   0,  360,  10, 300);
 			}
-			// 右手蓄力
-			if (skillid==148) {
+			if (skillid==148) { // 右手蓄力
 				SpawnThing(bossLoc, bossAngle, 4000, 3, 160, 150,   0,  360,  10, 320);
 			}
-			// 左手蓄力
-			if (skillid==149) {
+			if (skillid==149) { // 左手蓄力
 				SpawnThing(bossLoc, bossAngle, 4000, 3, 200, 150,   0,  360,  10, 320);
 			}
 		}
 		// GV_2王 303840
-		if ([3101, 3201].includes(whichmode) && event.templateId==2000) {
-			if (event.stage!=0) return;
-			// 前插 后喷
-			if (skillid==108) {
+		if ([3101, 3201].includes(whichmode) && event.templateId==2000 && event.stage==0) {
+			if (skillid==108) { // 前插 后喷
 				SpawnThing(bossLoc, bossAngle, 4000, 2,  90,  80,   0, 1000,  17);
 				SpawnThing(bossLoc, bossAngle, 4000, 2, 270,  80,   0, 1000, 343);
 			}
-			// 点名 前推
-			if (skillid==236) {
+			if (skillid==236) { // 点名 前推
 				SpawnThing(bossLoc, bossAngle, 4000, 2,  90,  80,   0, 1000, 163);
 				SpawnThing(bossLoc, bossAngle, 4000, 2, 270,  80,   0, 1000, 197);
 			}
-			// 内外圈
-			if (skillid==231||skillid==232) {
+			if ([231, 232].includes(skillid)) { // 内外圈
 				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  10, 300);
 			}
 		}
 		// AQ_1王 303480
-		if (whichmode==3023 && event.templateId==1000) {
-			if (event.stage!=0) return;
-			// 左手拉
-			if ([1111,2111, 1113,2113].includes(event.skill.id)) {
+		if (whichmode==3023 && event.templateId==1000 && event.stage==0) {
+			if ([1111,2111, 1113,2113].includes(event.skill.id)) { // 左手拉
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270, 200,   0,  300, 180);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270, 200,   0,  500,   0);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90,  20,   0,  300, 180);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90,  20,   0,  500,   0);
 			}
-			// 右手拉
-			if ([1112,2112, 1114,2114].includes(event.skill.id)) {
+			if ([1112,2112, 1114,2114].includes(event.skill.id)) { // 右手拉
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90, 200,   0,  300, 180);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90, 200,   0,  500,   0);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270,  20,   0,  300, 180);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270,  20,   0,  500,   0);
 			}
-			// 重击
-			if (event.skill.id==3107) {
+			if (event.skill.id==3107) { // 重击
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90,  75,   0, 1000, 172);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270,  75,   0, 1000, 188);
 			}
-			// 后扫半圈
-			if (event.skill.id==1115||event.skill.id==2115) {
+			if ([1115, 2115].includes(event.skill.id)) { // 后扫半圈
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0, 150,  340, 260);
 				SpawnThing(bossLoc, bossAngle, 2000, 2,   0,   0, 150,  340,  90);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  20, 150);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  10, 245);
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 260,   90,  10, 340);
 			}
-			
 			if (event.skill.id==3115) { // 旋转攻击
 				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  10, 320);
 			}
@@ -522,59 +535,55 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,  10, 320);
 				}, 2000);
 			}
-			// 前插
-			if (event.skill.id==1110||event.skill.id==2110) {
+			if ([1110, 2110].includes(event.skill.id)) { // 前插
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 160,   0,  360,  12, 220);
 			}
 		}
 		// AQ_2王 303490
-		if (whichmode==3023 && event.templateId==2000) {
-			if (event.stage!=0) return;
-			// 插地板
-			if (skillid==181) {
+		if (whichmode==3023 && event.templateId==2000 && event.stage==0) {
+			if (skillid==181) { // 插地板
 				SpawnThing(bossLoc, bossAngle, 3000, 2,  90,  75,   0, 1000, 172);
 				SpawnThing(bossLoc, bossAngle, 3000, 2, 270,  75,   0, 1000, 188);
 			}
-			// 后退 | 前搓
-			if (skillid==202) {
+			if (skillid==202) { // 后退 | 前搓
 				SpawnThing(bossLoc, bossAngle, 3000, 2,  90,  90,   0,  500,   0);
 				SpawnThing(bossLoc, bossAngle, 3000, 2,  90,  90,   0,  500, 180);
 				SpawnThing(bossLoc, bossAngle, 3000, 2, 270,  90,   0,  500,   0);
 				SpawnThing(bossLoc, bossAngle, 3000, 2, 270,  90,   0,  500, 180);
 			}
 		}
+		// SI_1王 542050
+		
+		// SI_2王 541070
+		
 		// SI_3王 545040
 		if (whichmode==3020 && event.templateId==2200) {
-			// 直线骷髅
-			if (skillid==129) {
+			if (skillid==129 && event.stage==0) { // 直线骷髅
 				SpawnThing(bossLoc, bossAngle, 2000, 2,  90,  75,   0,  800, 180);
 				SpawnThing(bossLoc, bossAngle, 2000, 2, 270,  75,   0,  800, 180);
 			}
-			// 蓄力(晕坦)
-			if (skillid==108) {
+			if (skillid==108 && event.stage==0) { // 蓄力(晕坦)
 				SpawnThing(bossLoc, bossAngle, 2000, 3, 180, 170,   0,  360,  20, 120);
 			}
-			// 后擒 -> 扩散4圈
-			if (skillid==133 && event.stage==1) {
+			if (skillid==133 && event.stage==1) { // 后擒 -> 扩散4圈
 				bossLoc = event.dest;
 				bossAngle = event.w;
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 300);
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   4, 600);
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   4, 900);
 			}
-			// 三连击 开始技能
-			/* if (skillid==121) {			// 124 前砸 -> 125 转圈
-				SpawnPoint(bossLoc, bossAngle, 3000, 3, 180, 170);
-				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 170,   0,  360,  10, 290);
+			// 三连击
+			if (skillid==124 && event.stage==0) { // 前砸 -> 125 转圈
+				SpawnPoint(bossLoc, bossAngle, 2000, 3, 180, 170);
+				SpawnThing(bossLoc, bossAngle, 2000, 3, 180, 170,   0,  360,  10, 290);
 			}
-			if (skillid==122) {			// 125 转圈  -> 124 前砸
+			if (skillid==125 && event.stage==0) { // 转圈 -> 124 前砸
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0,   0,  360,  10, 280);
-				SpawnThing(bossLoc, bossAngle, 3000, 3,   0,   0,   0,  360,   4, 560);
-			} */
+				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0,   0,  360,   4, 560);
+			}
 		}
 		// CK_凯尔 304260
-		if ([3026, 3126].includes(whichmode) && [1000, 1001, 1002].includes(event.templateId)) {
-			if (event.stage!=0) return;
+		if ([3026, 3126].includes(whichmode) && [1000, 1001, 1002].includes(event.templateId) && event.stage==0) {
 			if ([103, 153].includes(skillid)) { // 尾巴(击飞!!)
 				SpawnThing(bossLoc, bossAngle, 1500, 2,   0,   0,   0,  500,  40);
 				SpawnThing(bossLoc, bossAngle, 1500, 2,   0,   0,   0,  500, 280);
@@ -607,7 +616,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  20, 110);
 				
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 350);
-			}
+			} */
 			if (skillid==105) { // 八方陨石_大
 				SpawnThing(bossLoc, bossAngle, 3000, 3, 135, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 3250, 3, 315, 500,   0,  360,  10, 270);
@@ -617,17 +626,16 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 4250, 3, 270, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 4500, 3,   0, 500,   0,  360,  10, 270);
 				SpawnThing(bossLoc, bossAngle, 4750, 3, 180, 500,   0,  360,  10, 270);
-			} */
+			}
 		}
 		// FA_狂气 545050
 		if (whichmode==3027 && event.templateId==1000) {
-			if (event.stage!=0) return;
-			if ([116, 140].includes(skillid)) { // 斩击
-				SpawnThing(bossLoc, bossAngle, 3000, 3, 180, 180,   0,  360,   8, 460);
+			if ([116, 140].includes(skillid) && event.stage==1) { // 斩击
+				SpawnThing(bossLoc, bossAngle, 2000, 3, 180, 180,   0,  360,   8, 460);
 			}
-			if (skillid==302) { // 甜甜圈
-				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,  10, 240);
-				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   8, 480);
+			if (skillid==302 && event.stage==0) { // 甜甜圈
+				SpawnThing(bossLoc, bossAngle, 4000, 3,   0,   0,   0,  360,  10, 240);
+				SpawnThing(bossLoc, bossAngle, 4000, 3,   0,   0,   0,  360,   8, 480);
 			}
 		}
 	}
