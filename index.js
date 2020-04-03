@@ -600,6 +600,8 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 320,  230,   8, 440);
 			}
 			if ([212, 213, 214, 215].includes(skillid)) { // 内外鉴定
+				SpawnThing(bossLoc, bossAngle, 5000, 2,   0,   0,   0,  720, 180);
+				SpawnThing(bossLoc, bossAngle, 5000, 2,   0,   0,   0,  720,   0);
 				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   8, 440);
 			}
 			if (skillid==154) { // 寒气_小
@@ -706,7 +708,7 @@ module.exports = function Tera_Guide_Area(mod) {
 		mod.send('S_SPAWN_DROPITEM', 8, {
 			gameId: uid1,
 			loc: loc,
-			item: 98260,
+			item: 88704,
 			amount: 1,
 			expiry: 600000,
 			owners: [{}]
