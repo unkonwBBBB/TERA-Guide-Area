@@ -12,7 +12,7 @@ module.exports = function Tera_Guide_Area(mod) {
 		bossLoc    = {},    // BOSS 坐标
 		bossAngle  = 0,     // BOSS 角度
 		skillid    = 0,     // BOSS 攻击技能编号
-		uid1       = 999999999n, // 龙头UID
+		uid1       = 999999999n, // 光柱UID
 		uid2       = 899999999n, // 花朵UID
 		offsetLoc  = {};    // 偏移坐标
 	// 控制命令
@@ -91,7 +91,6 @@ module.exports = function Tera_Guide_Area(mod) {
 			-------------------------- 入口 --------------------------
 		];
 		 */
-		
 	}
 	
 	function sSpawnProjectile(event) {
@@ -600,9 +599,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 320,  230,   8, 440);
 			}
 			if ([212, 213, 214, 215].includes(skillid)) { // 内外鉴定
-				SpawnThing(bossLoc, bossAngle, 5000, 2,   0,   0,   0,  720, 180);
-				SpawnThing(bossLoc, bossAngle, 5000, 2,   0,   0,   0,  720,   0);
-				SpawnThing(bossLoc, bossAngle, 5000, 3,   0,   0,   0,  360,   8, 440);
+				SpawnThing(bossLoc, bossAngle, 8000, 3,   0,   0,   0,  360,   8, 440);;
 			}
 			if (skillid==154) { // 寒气_小
 				SpawnThing(bossLoc, bossAngle, 5000, 3, 180,  80,   0,  360,   8, 520);
@@ -655,11 +652,9 @@ module.exports = function Tera_Guide_Area(mod) {
 	
 	function SpawnThing(location, angle, duration, type, offsetAngle, offsetDistance, minRadius, maxRadius, rotateAngle, rotateRadius) {
 		// 偏移坐标(OffsetLocation)
-		if (type!=1 && offsetDistance!=0) {
+		if (offsetDistance!=0) {
 			SpawnPoint(location, angle, 100, 0, offsetAngle, offsetDistance);
 			location = offsetLoc;
-		} else {
-			location = bossLoc;
 		}
 		
 		if (type==1) { // 构建标记(SpawnPoint)
@@ -693,7 +688,7 @@ module.exports = function Tera_Guide_Area(mod) {
 		
 		offsetLoc = new Vec3(spawnx, spawny, location.z);
 		
-		if (type == 1) {
+		if (type==1) {
 			SpawnD(uid1, offsetLoc);
 			setTimeout(DespawnD, duration, uid1);
 			uid1--;
@@ -723,17 +718,17 @@ module.exports = function Tera_Guide_Area(mod) {
 	
 	function SpawnC(uid2, loc, w) {
 		mod.send('S_SPAWN_COLLECTION', 4, {
-			gameId : uid2,
-			id : 413,
-			amount : 1,
-			loc : loc,
-			w : w
+			gameId: uid2,
+			id: 413,
+			amount: 1,
+			loc: loc,
+			w: w
 		});
 	}
 	
 	function DespawnC(uid2) {
 		mod.send('S_DESPAWN_COLLECTION', 2, {
-			gameId : uid2
+			gameId: uid2
 		});
 	}
 	
