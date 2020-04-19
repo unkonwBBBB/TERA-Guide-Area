@@ -599,7 +599,9 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(bossLoc, bossAngle, 2000, 3,   0,   0, 320,  230,   8, 440);
 			}
 			if ([212, 213, 214, 215].includes(skillid)) { // 内外鉴定
-				SpawnThing(bossLoc, bossAngle, 8000, 3,   0,   0,   0,  360,   8, 440);;
+				SpawnThing(bossLoc, bossAngle, 8000, 2,   0,   0,   0,  720, 180);
+				SpawnThing(bossLoc, bossAngle, 8000, 2,   0,   0,   0,  720,   0);
+				SpawnThing(bossLoc, bossAngle, 8000, 3,   0,   0,   0,  360,   8, 440);
 			}
 			if (skillid==154) { // 寒气_小
 				SpawnThing(bossLoc, bossAngle, 5000, 3, 180,  80,   0,  360,   8, 520);
