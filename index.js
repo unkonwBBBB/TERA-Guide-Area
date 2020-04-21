@@ -101,18 +101,14 @@ module.exports = function Tera_Guide_Area(mod) {
 		if (!Enabled || !whichmode) return;
 		
 		// BS_火神_王座
-		if (whichmode==444 && event.templateId==2500 && event.stage==0 && event.skill.id==1305) {
+		if (whichmode== 444 && event.templateId==2500 && event.stage==0 && event.skill.id==1305) {
 			SpawnThing(event.loc, event.w, 4000, 2, 0, 0, 0, 3000, 180);
-		}
-		// 金鳞船 - 海浪老兵(弓箭) 陷阱炸弹
-		if (whichmode==3020 && event.templateId==1700 && event.stage==0 && event.skill.id==1105) {
-			SpawnPoint(event.loc, event.w, 5000, 1, 0, 0);
 		}
 		
 		if (boss_ID != event.gameId) return;
-		skillid   = event.skill.id % 1000; // 愤怒简化 取1000余数运算
+		skillid = event.skill.id % 1000; // 愤怒简化 取1000余数运算
 		
-		// DW_1王
+		// DW_1王 302180
 		
 		// DW_2王 303360
 		if (whichmode== 466 && event.templateId==46602 && event.stage==0) {
@@ -134,11 +130,11 @@ module.exports = function Tera_Guide_Area(mod) {
 		
 		// FI_3王 303140
 		
-		// DF_1王
+		// DF_1王 303120
 		
-		// DF_2王
+		// DF_2王 303150
 		
-		// DF_3王
+		// DF_3王 303140
 		
 		// RM_1王 300860
 		if ([770, 970].includes(whichmode) && event.templateId==1000 && event.stage==0) {
