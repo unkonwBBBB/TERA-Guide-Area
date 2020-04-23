@@ -2,7 +2,7 @@
     "name": "Tera-Guide-Area",
     "options": {
         "niceName": "Tera-Guide-Area",
-        "guiName": "地面提示(Tera-Guide-Area)"
+        "guiName": "Tera-Guide-Area(地面提示)"
     },
     "author": "ZC",
     "description": "为TERA的常用副本提供[技能]辅助-地面提示",
