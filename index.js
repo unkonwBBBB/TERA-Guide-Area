@@ -219,7 +219,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// RK_1王 303400
-		if ([735, 935].includes(whichmode) && event.templateId==1000 && event.stage==0) {
+		if ([735, 935, 3034].includes(whichmode) && event.templateId==1000 && event.stage==0) {
 			if (skillid==315||skillid==319) { // 披萨_1 前右
 				mod.setTimeout(() => {
 				SpawnThing(event.loc, event.w,14000, 2,   0,   0,   0,  800, 180);
@@ -276,7 +276,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// RK_2王 303420
-		if ([735, 935].includes(whichmode) && event.templateId==2000 && event.stage==0) {
+		if ([735, 935, 3034].includes(whichmode) && event.templateId==2000 && event.stage==0) {
 			if (skillid==108) { // 后喷
 				SpawnThing(event.loc, event.w, 3000, 2,   0,   0,   0,  380,  60);
 				SpawnThing(event.loc, event.w, 3000, 2,   0,   0,   0,  380, 300);
@@ -293,7 +293,7 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 		}
 		// RK_3王 303410
-		if ([735, 935].includes(whichmode) && event.templateId==3000 && event.stage==0) {
+		if ([735, 935, 3034].includes(whichmode) && event.templateId==3000 && event.stage==0) {
 			if (skillid==128) { // 火箭拳 后喷 131
 				mod.setTimeout(() => {
 				SpawnThing(event.loc, event.w, 3000, 2,   0,  40,   0, 1200,  60);
@@ -613,7 +613,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				
 				SpawnThing(event.loc, event.w, 5000, 3,   0,   0,   0,  360,  10, 350);
 			} */
-			if (skillid==105) { // 八方陨石_大
+			/* if (skillid==105) { // 八方陨石_大
 				SpawnThing(event.loc, event.w, 3000, 3, 135, 500,   0,  360,  10, 270);
 				SpawnThing(event.loc, event.w, 3250, 3, 315, 500,   0,  360,  10, 270);
 				SpawnThing(event.loc, event.w, 3500, 3,  45, 500,   0,  360,  10, 270);
@@ -622,9 +622,9 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(event.loc, event.w, 4250, 3, 270, 500,   0,  360,  10, 270);
 				SpawnThing(event.loc, event.w, 4500, 3,   0, 500,   0,  360,  10, 270);
 				SpawnThing(event.loc, event.w, 4750, 3, 180, 500,   0,  360,  10, 270);
-			}
+			} */
 		}
-		// FA_狂气 545050
+		// FA1_狂气_大剑 545050
 		if (whichmode==3027 && event.templateId==1000 && event.stage==0) {
 			if ([116, 140].includes(skillid)) { // 斩击
 				SpawnThing(event.loc, event.w, 2000, 3, 180, 180,   0,  360,   8, 460);
@@ -632,6 +632,84 @@ module.exports = function Tera_Guide_Area(mod) {
 			if (skillid==302) { // 甜甜圈
 				SpawnThing(event.loc, event.w, 4000, 3,   0,   0,   0,  360,  10, 240);
 				SpawnThing(event.loc, event.w, 4000, 3,   0,   0,   0,  360,   8, 480);
+			}
+		}
+		// KG_巨人 302170
+		if (whichmode==453 && event.templateId==999) {
+			if (skillid==106 && event.stage==1) { // 击退
+				SpawnThing(event.loc, event.w, 3000, 2,  90,  75,   0, 1000, 165);
+				SpawnThing(event.loc, event.w, 3000, 2, 270,  75,   0, 1000, 195);
+			}
+			if (skillid==119 && event.stage==0) { // 大范围击倒
+				SpawnThing(event.loc, event.w, 6000, 3, 180,  80,   0,  360,   8, 460);
+			}
+			if (skillid==120 && event.stage==0) { // 甜甜圈
+				SpawnThing(event.loc, event.w, 5000, 3, 180,  10,   0,  360,  12, 200);
+				SpawnThing(event.loc, event.w, 5000, 3, 180,  10,   0,  360,   8, 400);
+			}
+		}
+		// DA_司令 304340
+		if ([2105, 3102, 3202].includes(whichmode) && event.templateId==1000 && event.stage==0) {
+			if (skillid==106) { // 前砸(眩晕)
+				SpawnThing(event.loc, event.w, 2000, 3, 180,  90,   0,  360,  18, 180);
+			}
+			if (skillid==109) { // 大脚(击倒)
+				event.loc = event.dest;
+				event.w = event.w;
+				SpawnThing(event.loc, event.w, 4000, 3, 180,  40,   0,  360,   8, 420);
+			}
+			if (skillid==110) { // 甜甜圈
+				SpawnThing(event.loc, event.w, 3000, 3, 180,   0,   0,  360,  10, 320);
+			}
+			if (skillid==114) { // 插地板
+				SpawnThing(event.loc, event.w, 2000, 3, 180,  20,   0,  360,   8, 400);
+			}
+			if ([121, 124].includes(skillid)) { // 鉴定
+				SpawnThing(event.loc, event.w, 4000, 2, 180,  80,   0,  500,  60);
+				SpawnThing(event.loc, event.w, 4000, 2, 180,  80,   0,  500, 120);
+				SpawnThing(event.loc, event.w, 4000, 2, 180,  80,   0,  500, 300);
+				SpawnThing(event.loc, event.w, 4000, 2, 180,  80,   0,  500, 240);
+				mod.setTimeout(() => {
+				SpawnThing(event.loc, event.w, 2000, 2, 180,  82,   0,  600,  90);
+				SpawnThing(event.loc, event.w, 2000, 2, 180,  82,   0,  600, 240);
+				SpawnThing(event.loc, event.w, 2000, 3, 180,  82, 240,  90,   4, 600);
+				}, 4000);
+			}
+		}
+		// FA2_狂气_拳师 545060
+		if ([3103, 3203].includes(whichmode) && event.templateId==1000 && event.stage==0) {
+			if (skillid==114) { // 升天拳
+				event.loc = event.dest;
+				event.w = event.w;
+				SpawnThing(event.loc, event.w, 2000, 3,   0,   0,   0,  360,  10, 250);
+			}
+			if (skillid==143) { // 正义跳跃
+				event.loc = event.dest;
+				event.w = event.w;
+				SpawnThing(event.loc, event.w, 3000, 3,   0,   0,   0,  360,  10, 250);
+			}
+			if (skillid==146) { // 后喷
+				event.loc = event.dest;
+				event.w = event.w;
+				SpawnThing(event.loc, event.w, 3000, 2,  90, 130,   0,  400,   0);
+				SpawnThing(event.loc, event.w, 3000, 2, 270, 130,   0,  400,   0);
+			}
+			if (skillid==148) { // 后踩
+				event.loc = event.dest;
+				event.w = event.w;
+				SpawnThing(event.loc, event.w, 3000, 3, 355, 115,   0,  360,  10, 300);
+			}
+			/* if (skillid==129) { // 扇形冲击波
+				SpawnThing(event.loc, event.w, 3000, 2,  40, 120,   0,  400, 140);
+				SpawnThing(event.loc, event.w, 3000, 2, 320, 120,   0,  400, 220);
+				SpawnThing(event.loc, event.w, 3000, 3,   0,   0, 140,  220,  10, 380);
+			} */
+			if ([303, 304].includes(skillid)) { // 地面强打
+				SpawnThing(event.loc, event.w, 4000, 3,   0,   0,   0,  360,  10, 260);
+				SpawnThing(event.loc, event.w, 4000, 3,   0,   0,   0,  360,   8, 500);
+			}
+			if (skillid==314) { // 爆炸
+				SpawnThing(event.loc, event.w, 3000, 3,   0,   0,   0,  360,   8, 450);
 			}
 		}
 	}

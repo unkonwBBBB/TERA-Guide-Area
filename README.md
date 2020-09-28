@@ -33,7 +33,15 @@ RK-9机库 (RK-9 Kennel)
 
 凯尔赛克隐藏地(Corrupted Skynest)
 
-狂气竞技场(Forbidden Arena)
+狂气竞技场 [不灭的斗士](Forbidden Arena[Hagufna])
+
+巨人深林[5人](Kezzel's Gorge)
+
+狂气竞技场 [永恒的斗神]/[不灭的斗神]
+
+(Forbidden Arena [Undying Warlord]/[Nightmare Undying Warlord])
+
+司令官修炼场(Draakon Arena)
 
 ------
 
