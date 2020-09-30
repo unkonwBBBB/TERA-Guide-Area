@@ -653,22 +653,14 @@ module.exports = function Tera_Guide_Area(mod) {
 			if (skillid==106) { // 前砸(眩晕)
 				SpawnThing(event.loc, event.w, 2000, 3, 180,  90,   0,  360,  18, 180);
 			}
-			if (skillid==109) { // 大脚(击倒)
-				event.loc = event.dest;
-				event.w = event.w;
-				SpawnThing(event.loc, event.w, 4000, 3, 180,  40,   0,  360,   8, 420);
-			}
 			if (skillid==110) { // 甜甜圈
 				SpawnThing(event.loc, event.w, 3000, 3, 180,   0,   0,  360,  10, 320);
 			}
-			if (skillid==114) { // 插地板
-				SpawnThing(event.loc, event.w, 2000, 3, 180,  20,   0,  360,   8, 400);
-			}
 			if ([121, 124].includes(skillid)) { // 鉴定
-				SpawnThing(event.loc, event.w, 4000, 2, 180,  80,   0,  500,  60);
-				SpawnThing(event.loc, event.w, 4000, 2, 180,  80,   0,  500, 120);
-				SpawnThing(event.loc, event.w, 4000, 2, 180,  80,   0,  500, 300);
-				SpawnThing(event.loc, event.w, 4000, 2, 180,  80,   0,  500, 240);
+				SpawnThing(event.loc, event.w, 4000, 2, 180,  70,   0,  500,  60);
+				SpawnThing(event.loc, event.w, 4000, 2, 180,  70,   0,  500, 120);
+				SpawnThing(event.loc, event.w, 4000, 2, 180,  70,   0,  500, 300);
+				SpawnThing(event.loc, event.w, 4000, 2, 180,  70,   0,  500, 240);
 				mod.setTimeout(() => {
 				SpawnThing(event.loc, event.w, 2000, 2, 180,  82,   0,  600,  90);
 				SpawnThing(event.loc, event.w, 2000, 2, 180,  82,   0,  600, 240);
@@ -681,22 +673,23 @@ module.exports = function Tera_Guide_Area(mod) {
 			if (skillid==114) { // 升天拳
 				event.loc = event.dest;
 				event.w = event.w;
-				SpawnThing(event.loc, event.w, 2000, 3,   0,   0,   0,  360,  10, 250);
+				SpawnThing(event.loc, event.w, 2000, 3,   0,   0,   0,  370,  10, 250);
+			}
+			if (skillid==124) { // 回旋飞踢
+				event.loc = event.dest;
+				event.w = event.w;
+				SpawnPoint(event.loc, event.w, 2000, 1,   0,   0);
 			}
 			if (skillid==143) { // 正义跳跃
 				event.loc = event.dest;
 				event.w = event.w;
-				SpawnThing(event.loc, event.w, 3000, 3,   0,   0,   0,  360,  10, 250);
+				SpawnThing(event.loc, event.w, 2000, 3,   0,   0,   0,  370,  10, 250);
 			}
 			if (skillid==146) { // 后喷
-				event.loc = event.dest;
-				event.w = event.w;
-				SpawnThing(event.loc, event.w, 3000, 2,  90, 130,   0,  400,   0);
-				SpawnThing(event.loc, event.w, 3000, 2, 270, 130,   0,  400,   0);
+				SpawnThing(event.loc, event.w, 3000, 2,  90, 130,   0,  600,  10);
+				SpawnThing(event.loc, event.w, 3000, 2, 270, 130,   0,  600, 350);
 			}
 			if (skillid==148) { // 后踩
-				event.loc = event.dest;
-				event.w = event.w;
 				SpawnThing(event.loc, event.w, 3000, 3, 355, 115,   0,  360,  10, 300);
 			}
 			/* if (skillid==129) { // 扇形冲击波
@@ -707,9 +700,6 @@ module.exports = function Tera_Guide_Area(mod) {
 			if ([303, 304].includes(skillid)) { // 地面强打
 				SpawnThing(event.loc, event.w, 4000, 3,   0,   0,   0,  360,  10, 260);
 				SpawnThing(event.loc, event.w, 4000, 3,   0,   0,   0,  360,   8, 500);
-			}
-			if (skillid==314) { // 爆炸
-				SpawnThing(event.loc, event.w, 3000, 3,   0,   0,   0,  360,   8, 450);
 			}
 		}
 	}
