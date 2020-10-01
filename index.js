@@ -591,12 +591,12 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(event.loc, event.w, 8000, 3,   0,   0,   0,  360,   8, 440);
 			}
 			if ([212, 214].includes(skillid)) { // 内外鉴定-火爪(141, 142)
-				SpawnThing(event.loc, event.w, 8000, 2,   0,   0,   0,  720, 190);
-				SpawnThing(event.loc, event.w, 8000, 2,   0,   0,   0,  720,  10);
+				SpawnThing(event.loc, event.w, 6000, 2,   0,   0,   0,  720, 190);
+				SpawnThing(event.loc, event.w, 6000, 2,   0,   0,   0,  720,  10);
 			}
 			if ([213, 215].includes(skillid)) { // 内外鉴定-冰爪(143, 144)
-				SpawnThing(event.loc, event.w, 8000, 2,   0,   0,   0,  720, 170);
-				SpawnThing(event.loc, event.w, 8000, 2,   0,   0,   0,  720, 350);
+				SpawnThing(event.loc, event.w, 6000, 2,   0,   0,   0,  720, 170);
+				SpawnThing(event.loc, event.w, 6000, 2,   0,   0,   0,  720, 350);
 			}
 			if (skillid==154) { // 寒气_小
 				SpawnThing(event.loc, event.w, 5000, 3, 180,  80,   0,  360,   8, 520);
@@ -613,7 +613,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				
 				SpawnThing(event.loc, event.w, 5000, 3,   0,   0,   0,  360,  10, 350);
 			} */
-			/* if (skillid==105) { // 八方陨石_大
+			if (skillid==105) { // 八方陨石_大
 				SpawnThing(event.loc, event.w, 3000, 3, 135, 500,   0,  360,  10, 270);
 				SpawnThing(event.loc, event.w, 3250, 3, 315, 500,   0,  360,  10, 270);
 				SpawnThing(event.loc, event.w, 3500, 3,  45, 500,   0,  360,  10, 270);
@@ -622,7 +622,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(event.loc, event.w, 4250, 3, 270, 500,   0,  360,  10, 270);
 				SpawnThing(event.loc, event.w, 4500, 3,   0, 500,   0,  360,  10, 270);
 				SpawnThing(event.loc, event.w, 4750, 3, 180, 500,   0,  360,  10, 270);
-			} */
+			}
 		}
 		// FA1_狂气_大剑 545050
 		if (whichmode==3027 && event.templateId==1000 && event.stage==0) {
@@ -651,20 +651,31 @@ module.exports = function Tera_Guide_Area(mod) {
 		// DA_司令 304340
 		if ([2105, 3102, 3202].includes(whichmode) && event.templateId==1000 && event.stage==0) {
 			if (skillid==106) { // 前砸(眩晕)
+				event.loc = event.dest;
+				event.w = event.w;
 				SpawnThing(event.loc, event.w, 2000, 3, 180,  90,   0,  360,  18, 180);
 			}
 			if (skillid==110) { // 甜甜圈
 				SpawnThing(event.loc, event.w, 3000, 3, 180,   0,   0,  360,  10, 320);
 			}
+			if (skillid==111) { // 跳劈
+				event.loc = event.dest;
+				event.w = event.w;
+				SpawnThing(event.loc, event.w, 3000, 3, 180,   0,   0,  360,  10, 360);
+			}
 			if ([121, 124].includes(skillid)) { // 鉴定
-				SpawnThing(event.loc, event.w, 4000, 2, 180,  70,   0,  500,  60);
-				SpawnThing(event.loc, event.w, 4000, 2, 180,  70,   0,  500, 120);
-				SpawnThing(event.loc, event.w, 4000, 2, 180,  70,   0,  500, 300);
-				SpawnThing(event.loc, event.w, 4000, 2, 180,  70,   0,  500, 240);
+				event.loc = event.dest;
+				event.w = event.w;
+				
+				SpawnThing(event.loc, event.w, 3000, 2, 180,  55,   0,  500,  60);
+				SpawnThing(event.loc, event.w, 3000, 2, 180,  55,   0,  500, 120);
+				SpawnThing(event.loc, event.w, 3000, 2, 180,  55,   0,  500, 300);
+				SpawnThing(event.loc, event.w, 3000, 2, 180,  55,   0,  500, 240);
+				
 				mod.setTimeout(() => {
-				SpawnThing(event.loc, event.w, 2000, 2, 180,  82,   0,  600,  90);
-				SpawnThing(event.loc, event.w, 2000, 2, 180,  82,   0,  600, 240);
-				SpawnThing(event.loc, event.w, 2000, 3, 180,  82, 240,  90,   4, 600);
+				SpawnThing(event.loc, event.w, 3000, 2, 180,  70,   0,  600,  90);
+				SpawnThing(event.loc, event.w, 3000, 2, 180,  70,   0,  600, 240);
+				SpawnThing(event.loc, event.w, 3000, 3, 180,  70, 240,   90,   4, 600);
 				}, 4000);
 			}
 		}
