@@ -88,12 +88,12 @@ module.exports = function Tera_Guide_Area(mod) {
 			-------------------------- 入口 --------------------------
 		];
 		 */
-		if ([3034].includes(event.huntingZoneId) && event.templateId==2007) {
+		if (event.huntingZoneId==3034 && event.templateId==2007) {
 			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  600,   0);
 			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  400,  90);
 			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  600, 180);
-			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  40, 270);
-			motes=-1;
+			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  400, 270);
+			motes = motes-1;
 			if (motes==0) motes=5;
 		}
 	}
