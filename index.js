@@ -10,7 +10,8 @@ module.exports = function Tera_Guide_Area(mod) {
 		skillid            = 0,     // BOSS 攻击技能编号
 		uid1               = 999999999n, // 光柱UID
 		uid2               = 899999999n, // 花朵UID
-		offsetLoc          = {};    // 偏移坐标
+		offsetLoc          = {},    // 偏移坐标
+		motes              = 5;
 	// 控制命令
 	mod.command.add(["地面提示", "area"], () => {
 		Enabled = !Enabled;
@@ -59,6 +60,7 @@ module.exports = function Tera_Guide_Area(mod) {
 		boss_ID            = null;
 		boss_HP            = 0;
 		skillid            = 0;
+		motes              = 5;
 	}
 	
 	function sBossGageInfo(event) {
@@ -86,6 +88,14 @@ module.exports = function Tera_Guide_Area(mod) {
 			-------------------------- 入口 --------------------------
 		];
 		 */
+		if ([3034].includes(event.huntingZoneId) && event.templateId==2007) {
+			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  600,   0);
+			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  400,  90);
+			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  600, 180);
+			SpawnThing(event.loc, event.w, (motes*3000), 2,   0,   0,   0,  40, 270);
+			motes=-1;
+			if (motes==0) motes=5;
+		}
 	}
 	
 	function sSpawnProjectile(event) {
@@ -274,6 +284,9 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(event.loc, event.w,14000, 2,   0,   0,   0,  800, 180);
 				}, 1000);
 			}
+			if ([304 305].includes(skillid) {
+				SpawnThing(event.loc, event.w, 3000, 3,   0,   0,   0,  360,  10, 380);
+			}
 		}
 		// RK_2王 303420
 		if ([735, 935, 3034].includes(whichmode) && event.templateId==2000 && event.stage==0) {
@@ -290,6 +303,23 @@ module.exports = function Tera_Guide_Area(mod) {
 			}
 			if (skillid==304) { // 爆炸
 				SpawnThing(event.loc, event.w, 4000, 3,   0,   0,   0,  360,   8, 400);
+			}
+			if (skillid==310) { // 鉴定->两边安全
+				SpawnThing(event.loc, event.w, 2000, 2,  90,  80,   0, 1200, 180);
+				SpawnThing(event.loc, event.w, 2000, 2, 270,  80,   0, 1200, 180);
+				mod.setTimeout(()=> {
+				SpawnThing(event.loc, event.w, 3000, 2,  90, 210,   0, 1200, 180);
+				SpawnThing(event.loc, event.w, 3000, 2, 270, 210,   0, 1200, 180);
+				}, 2000);
+			}
+			if (skillid==311) { // 鉴定->中间安全
+				SpawnPoint(event.loc, event.w, 2000, 1, 180, 400);
+				SpawnThing(event.loc, event.w, 2000, 2,  90,  60,   0, 1200, 180);
+				SpawnThing(event.loc, event.w, 2000, 2, 270,  60,   0, 1200, 180);
+				mod.setTimeout(()=> {
+				SpawnThing(event.loc, event.w, 3000, 2,  90, 210,   0, 1200, 180);
+				SpawnThing(event.loc, event.w, 3000, 2, 270, 210,   0, 1200, 180);
+				}, 2000);
 			}
 		}
 		// RK_3王 303410
