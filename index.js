@@ -284,7 +284,7 @@ module.exports = function Tera_Guide_Area(mod) {
 				SpawnThing(event.loc, event.w,14000, 2,   0,   0,   0,  800, 180);
 				}, 1000);
 			}
-			if ([304 305].includes(skillid) {
+			if ([304, 305].includes(skillid)) {
 				SpawnThing(event.loc, event.w, 3000, 3,   0,   0,   0,  360,  10, 380);
 			}
 		}
